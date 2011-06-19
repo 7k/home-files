@@ -1,0 +1,16 @@
+[user]
+	name = Takeshi Kanemoto
+	email = tak.kanemoto@gmail.com
+
+[color]
+    ui = auto
+
+[url "ssh://takeshi.kanemoto@tak.atso-net.jp:29418/"]
+    insteadOf = git://tak.atso-net.jp/
+    pushInsteadOf = git://tak.atso-net.jp/
+
+[core]
+    attributesfile = ~/.gitattributes
+
+[alias]
+	ci = commit

@@ -1,0 +1,13 @@
+[url "ssh://tak.kanemoto@tak.atso-net.jp:29418/"]
+    pushInsteadOf = git://review.sonyericsson.net/
+    pushInsteadOf = git://tak.atso-net.jp/
+
+[user]
+	name = Takeshi Kanemoto
+	email = tak.kanemoto@gmail.com
+
+[color]
+    ui = auto
+
+[core]
+    attributesfile = ~/.gitattributes

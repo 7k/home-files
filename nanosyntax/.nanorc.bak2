@@ -1,0 +1,133 @@
+## set autoindent (Meta-I) to toggle
+set autoindent
+
+## brackets:
+set brackets ""')>]}"
+# to be able to justify paragraphs after one of those characters.
+# Use ctrl+j to justify the paragraph, meta+j to justify all the file, and ctrl+u to undo the justification
+
+## Match Brackets
+set matchbrackets "(]}"
+# use meta+altgr+9 (i.e meta+] ) to switch between the matching brackets
+
+## Remove empty first line (Meta-O) to toggle
+set morespace
+# as said in the manual: "Use the blank line below the titlebar as extra editing space."
+
+## Mouse support (Meta-M)
+# set mouse
+# Well, i’m still giving a 2nd change, because it’s not that useful. With it enable, nano will 
+# allow you to move the cursor, set a mark (see below) and use the helpful shortcut list at 
+# the bottom. To use the mark, double click and drag, or double click and move the cursor with 
+# the arrow keys. You can them, cut ( ctrl+k ), and to paste it, ctrl+u. Those are the good 
+# things. the bad, it won’t let you middle click and thus paste things into the current 
+# position inside the editor. Also, copying text with the mouse to use outside the editor is 
+# disabled. So basicly, we get a more featured editor, but with less integration with the 
+# surrounding environment. Completly useless in text mode.
+# If only it had the ability to scroll up/down with the mouse wheel…
+
+## Allow multibuffer (Meta-F)
+set multibuffer
+# This is actually extremely useful. If this option isn’t active, the crtl+r (read file)
+# just adds the file into the same buffer. With it, it opens a new buffer! You can cicle 
+# through the buffers with Meta+< and Meta+>
+
+set smooth
+# Text will scroll line-by-line, instead of the usual chunk-by-chunk behavior.
+
+# Save automatically on exit (without prompt)
+# set tempfile
+# Although this might seen a time-saver, beware to not enable this on a normal user. When 
+# enabled, if nano opens a file which the user doesn’t have permition and modifies it, nano 
+# won’t ask for the option to not save it, and thus you’ll be stuck inside nano forever! :P
+# ( you can ofc, save it on a proper directory:/home/you/thatevilfile )
+# Aparently, the bug is said to be fixed on the version2, but i guess not quite. i’ve to check 
+# upon that…
+
+# Next the include files for the sintax highlighting. just comment the include lines you’ll 
+# think will be useful.
+# i’m using this ones:
+
+## Nanorc files
+include "/usr/share/nano/nanorc.nanorc"
+
+## C/C++
+include "/usr/share/nano/c.nanorc"
+
+## HTML
+include "/usr/share/nano/html.nanorc"
+
+## Patch files
+include "/usr/share/nano/patch.nanorc"
+
+## Manpages
+include "/usr/share/nano/man.nanorc"
+
+## Groff
+include "/usr/share/nano/groff.nanorc"
+
+## Perl
+include "/usr/share/nano/perl.nanorc"
+
+## Python
+include "/usr/share/nano/python.nanorc"
+
+## Bourne shell scripts
+include "/usr/share/nano/sh.nanorc"
+
+include "/usr/share/nano/gentoo.nanorc"
+
+## Syntax Highlight Pack
+## CSS
+include "/usr/share/nano/css.nanorc"
+
+## php
+include "/usr/share/nano/php.nanorc"
+
+## makefile .am
+include "/usr/share/nano/gentoo.nanorc" 
+
+
+# More highlighting options
+# http://bigvo.dyndns.org/nanosyntax.tar.bz2
+
+## syntax highlighting for /etc/apt/sources.list
+## syntax "apt/sources.list" "sources\.list(\.old|~)?$"
+# component
+# color brightmagenta "^deb(-src)? ((http|file|ftp):/[^ ]+|cdrom:\[[^\]]+\]/|cdrom:\[[a-zA-Z0-9\._-\(\) ]+\]/) [^ ]+ .+$"
+# distribution
+# color brightred "^deb(-src)? ((http|file|ftp):/[^ ]+|cdrom:\[[^\]]+\]/|cdrom:\[[a-zA-Z0-9\._-\(\) ]+\]/) [^ ]+"
+# URI
+# color brightgreen "(http|file|ftp):/[^ ]+"
+# cdroms
+# [^\]] does not work…
+# color brightgreen "cdrom:\[[a-zA-Z0-9\._-\(\) ]+\]/"
+# deb / deb-src
+# color cyan "^deb"
+# color brightblue "^deb-src"
+# comments
+# color brightyellow "#.*"
+
+# config files (.ini)
+
+# ini highlighting
+syntax "ini" "\.ini(\.old|~)?$"
+# values
+color brightred "=.*$"
+# equal sign
+color green "="
+# numbers
+color brightblue "-?[0-9\.]+\s*($|;)"
+# ON/OFF
+color brightmagenta "ON|OFF|On|Off|on|off\s*($|;)"
+# sections
+color brightcyan "^\s*\[.*\]"
+# keys
+color cyan "^\s*[a-zA-Z0-9_\.]+"
+# comments
+color brightyellow ";.*$"
+
+syntax "tak" "\.(tak|txt)$"
+color brightblue "##+(.*)"
+# color brightgreen start="////" end="////"
+color brightgreen "\$\s.*"
