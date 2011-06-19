@@ -1,9 +1,9 @@
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-alias ll='ls -l --color=auto'                   # long list
-alias la='ls -A --color=auto'          		# all but . and ..
-alias l='ls -lashF  --color=auto'                  #
-alias lla='ls -lashF --color=auto'
+alias dir='ls -Gp --format=vertical'
+alias vdir='ls -Gp --format=long'
+alias ll='ls -Gl '
+alias la='ls -GA '
+alias l='ls -lashFGo '
+alias lla='ls -lashFG '
 alias g='gitk --all'
 alias gits='source ~/bin/git-switch'
 alias gerrit='ssh -p 29418 tak.kanemoto@tak.atso-net.jp gerrit'
