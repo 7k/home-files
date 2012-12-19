@@ -74,6 +74,9 @@ if __name__ == "__main__":
         logging.info("TITLE: %s" % sp['title'])
         logging.debug("DATE:  %s" % time.strftime('%m/%d/%Y %H:%M:%S',
             decode_iso8601(sp['dateCreated'].value)))
+        logging.debug('AUTHOR: %s: %s', sp['wp_author_display_name'], sp['wp_author_id'])
+        if sp['wp_author_id'] != 1:
+            sp['wp_author_id'] = 1
         postId = -1
         for tp in targetPosts:
             if sp['title'] == tp['title']:
