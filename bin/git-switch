@@ -4,24 +4,21 @@
 
 echo "I: setting up for $1..."
 
-[ -e ~/.gitconfig ] && rm -v ~/.gitconfig
+[ -f ~/.gitconfig ] && mv -v ~/.gitconfig ~/.gitconfig-backup
+[ -L ~/.gitconfig ] && rm -v ~/.gitconfig
 
 case $1 in
     home)
         export GIT_SSH="${HOME}/bin/socks-ssh"
         export GIT_PROXY_COMMAND="${HOME}/bin/socks-gw"
         # cp ~/.gitconfig-home ~/.gitconfig
-        ln -v -s home/.gitconfig-home ~/.gitconfig
+        ln -v -s home/.gitconfig-socks ~/.gitconfig
         ;;
-    local)
+    $1)
         unset GIT_SSH
         unset GIT_PROXY_COMMAND
-        ln -v -s home/.gitconfig-local ~/.gitconfig
+        ln -v -s home/.gitconfig-$1 ~/.gitconfig
         ;;
-    work|*)
-        unset GIT_SSH
-        unset GIT_PROXY_COMMAND
-        ln -v -s home/.gitconfig-work ~/.gitconfig
 esac
 
 echo "I: GIT_SSH=$GIT_SSH"
