@@ -2,6 +2,9 @@
     pushInsteadOf = git://review.sonyericsson.net/
     pushInsteadOf = git://tak.atso-net.jp/
 
+[url "https://github.com/"]
+    pushInsteadOf = git://github.com/
+
 [user]
 	name = Takeshi Kanemoto
 	email = tak.kanemoto@gmail.com
