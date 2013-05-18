@@ -1,0 +1,17 @@
+[url "ssh://tkjenkinsslave@tak.atso-net.jp:29418/"]
+    insteadOf = git://review.sonyericsson.net/
+    insteadOf = ssh://android-jpto.sonyericsson.net/
+    insteadOf = git://codeaurora.org/
+    insteadOf = ssh://partner.source.android.com:29418/
+[url "ssh://tkjenkinsslave@tak.atso-net.jp:29418/"]
+    pushInsteadOf = git://review.sonyericsson.net/
+[user]
+	name = TK Jekins
+	email = tkjenkinsslave@gmail.com
+[color]
+    ui = auto
+
+[url "ssh://tkjenkinsslave@tak.atso-net.jp:29418/"]
+    pushInsteadOf = git://tak.atso-net.jp/
+[core]
+    attributesfile = ~/.gitattributes

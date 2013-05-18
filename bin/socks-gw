@@ -1,4 +1,9 @@
 #!/bin/sh
 # Filename: ~/bin/socks-gw
 # This script connects to a SOCKS proxy using connect.c
-$HOME/bin/connect -H $SOCKS_PROXY $@
+if [ -n "$SOCKS_PROXY" ]; then
+    nc $@
+else
+    export HTTP_PROXY_PASSWORD=`grep "password=\(.*\)" ~/.credentials | grep -o "[^=]*$"`
+    $HOME/bin/connect -H $SOCKS_PROXY $@
+fi
