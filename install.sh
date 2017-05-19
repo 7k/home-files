@@ -22,6 +22,6 @@ done
 [ -e .virc ] && mv .virc .virc.bak
 ln -s $cwd/.virc .vimrc
 
-which sudo 2>/dev/null && sudo cp -R $HOME/home/nanosyntax/nanosyntax/nano/*.nanorc /usr/share/nano/
+#which sudo 2>/dev/null && sudo cp -R $HOME/home/nanosyntax/nanosyntax/nano/*.nanorc /usr/share/nano/
 
 # cp -a $cwd/.gitconfig* ~/

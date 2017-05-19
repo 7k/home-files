@@ -6,8 +6,9 @@ function parse_git_branch {
 }
 
 function git_dirty {
-  git status > /dev/null 2>&1 && {
-    git status 2>/dev/null | tail -n1 | grep -q "clean" || echo "*"
+  git status -s > /dev/null 2>&1 && {
+    [ -z "`git status -s 2>/dev/null`" ] || echo "*"
+    #git status -s 2>/dev/null | tail -n1 | grep -q "clean" || echo "*"
   }
 }
 
