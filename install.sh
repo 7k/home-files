@@ -1,7 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
 
-cwd=`dirname "$0"`
-# cwd=`readlink -f $cwd`
+cwd=$(cd "$(dirname "$0")"; pwd)
 echo "installing from $cwd"
 cd ~/
 
@@ -10,8 +9,23 @@ rm -rf .mc
 [ -d bin ] && mv bin bin.bu
 [ -d .vim ] && mv .vim .vim.bu
 
-for i in bin notes.txt .mc .nanorc .virc .vim .toprc .bash_prompt .bash_aliases .gitattributes; do
-  if [ ! -e $i ]; then
+files="
+bin
+notes.txt
+.mc
+.nanorc
+.virc
+.vim
+.vimrc
+.toprc
+.bash_prompt
+.bash_aliases
+.gitattributes
+.tmux.conf
+"
+
+for i in $files ; do
+  if [ ! -e $i -a ! -L $i ]; then
     ln -v -s $cwd/$i $i
   else
     mv $i $i.bak
@@ -19,9 +33,6 @@ for i in bin notes.txt .mc .nanorc .virc .vim .toprc .bash_prompt .bash_aliases 
   fi
 done
 
-[ -e .virc ] && mv .virc .virc.bak
-ln -s $cwd/.virc .vimrc
-
-which sudo 2>/dev/null && sudo cp -R $HOME/home/nanosyntax/nanosyntax/nano/*.nanorc /usr/share/nano/
+#which sudo 2>/dev/null && sudo cp -R $HOME/home/nanosyntax/nanosyntax/nano/*.nanorc /usr/share/nano/
 
 # cp -a $cwd/.gitconfig* ~/
