@@ -10,4 +10,5 @@ alias gerrit='socks-ssh -p 29418 tak.kanemoto@tak.atso-net.jp gerrit'
 alias ssho='ssh tkjenkins@tak.atso-net.jp'
 alias propedit='sudo /Developer/Applications/Utilities/Property\ List\ Editor.app/Contents/MacOS/Property\ List\ Editor'
 
-
+export GIT_EDITOR=vim
+export EDITOR=vim
